@@ -1,0 +1,38 @@
+name: Webdriver tests Telnyx
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  Report:
+    name: Tests
+    runs-on: ubuntu-latest
+    permissions:
+     contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node.js 
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Installation
+        run: npm install
+
+      - name: Run tests
+        run: npm run wdio
+        continue-on-error: true
+
+      - name: Generate Allure report
+        run: npx allure generate allure-results/ --clean
+
+      - name: Deploy report page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./allure-report
+
