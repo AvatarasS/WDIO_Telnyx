@@ -1,4 +1,4 @@
-# Automated Testing for telnyx.com using Cypress
+# Automated Testing for telnyx.com using WebdriverIO
 
 This project is an automated testing suite for the website [Telnyx](https://telnyx.com/), written in Cypress and Cucumber using JavaScript. The [Report](https://avatarass.github.io/WDIO_Telnyx/) made via Allure reporter. These tests cover various features of the Telnyx website, including video playback, logo display, button functionality and href attributes, form validation, title naming, search functionality, and checkbox filtering in different sections of the website.
 
