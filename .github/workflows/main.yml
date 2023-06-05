@@ -27,7 +27,7 @@ jobs:
         continue-on-error: true
 
       - name: Generate Allure report
-        run: npx allure generate allure-results/ --clean
+        run: npm run report
 
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3
